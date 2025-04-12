@@ -1,0 +1,8 @@
+{
+  "name": "BWB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "4e511f66"
+}

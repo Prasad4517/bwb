@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <!-- Left Menu Icon -->
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false" menu="leftMenu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>BWB</ion-title>
+
+    <!-- Right Notification Icon -->
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="openNotifications()">
+        <ion-icon slot="icon-only" name="chatbubble-ellipses-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

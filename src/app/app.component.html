@@ -1,3 +1,55 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <!-- Left Side Menu -->
+  <ion-menu side="start" menuId="leftMenu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      <!-- Profile Section -->
+      <div style="text-align: center; padding: 16px;">
+        <ion-avatar style="margin: 0 auto; width: 100px; height: 100px;">
+<img [src]="profileImage || 'assets/icon/default_profile.png'" (click)="updateProfileImage()">
+        </ion-avatar>
+        <ion-button size="small" fill="outline" color="medium" (click)="updateProfileImage()">
+          Update Image
+        </ion-button>
+      </div>
+
+      <ion-list>
+        <ion-item routerLink="/home">Profile</ion-item>
+        <ion-item routerLink="/setting">Free Cash</ion-item>
+        <ion-item routerLink="/fav">Favourites</ion-item>
+        <ion-item routerLink="/contact">Contact Us</ion-item>
+        <ion-item routerLink="/about">About Us</ion-item>
+        <ion-item routerLink="/new">What's New</ion-item>
+        <ion-item routerLink="/new">Help & Support</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Right Side Notifications Menu -->
+  <ion-menu side="end" menuId="notificationsMenu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Msg</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Notification 1</ion-item>
+        <ion-item>Notification 2</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main Content Area -->
+  <div id="main-content">
+    <app-header></app-header>
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
 </ion-app>

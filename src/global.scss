@@ -35,3 +35,71 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Ion content wrapper to allow vertical scroll if needed */
+ion-content {
+  overflow-y: auto;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+
+  /* Hide scrollbar cross-browser */
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE and Edge */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar in WebKit browsers inside ion-content's native scroll container */
+ion-content::part(native)::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* Custom Dark-Themed Action Sheet */
+.custom-action-sheet::part(content) {
+  background: #1e1e1e;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+.custom-action-sheet::part(header) {
+  color: #eeeeee;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 14px;
+}
+
+.custom-action-sheet::part(button) {
+  color: #4caf50;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.custom-action-sheet::part(button):hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #81c784;
+}
+
+.custom-action-sheet::part(cancel-button) {
+  color: #ff5252;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-action-sheet::part(cancel-button):hover {
+  background: rgba(255, 82, 82, 0.08);
+  color: #ff8a80;
+}
+
+/* Dimmed backdrop */
+ion-backdrop {
+  --backdrop-opacity: 0.7;
+}

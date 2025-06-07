@@ -1,0 +1,108 @@
+/* Ion content wrapper to allow vertical scroll if needed */
+ion-content {
+  overflow-y: auto;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}
+
+/* Common swiper container styling */
+swiper-container {
+  width: 100%;
+  margin-top: 33px;
+  height: auto;
+  height: var(--swiper-height);
+}
+
+/* Swiper height based on screen size — optional */
+:host {
+  --swiper-height: 50vh;
+}
+
+@media (max-width: 768px) {
+  :host {
+    --swiper-height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    --swiper-height: 35vh;
+  }
+}
+
+/* Navigation button styles (if you ever enable them again) */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Pagination bullets */
+swiper-container::part(pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background: #007aff;
+  opacity: 1;
+}
+
+/* Slide image styling */
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Images inside slides — cropping bottom 30% */
+swiper-slide img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  clip-path: inset(0 0 30% 0); /* Crop bottom 30% */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card styles */
+.card, .card1 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80%;
+  max-width: 400px;
+  height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.card {
+  background-image: url('/assets/colorful.jpeg');
+}
+
+.card1 {
+  background-image: url('/assets/colorful.jpeg');
+}
+
+/* Button inside card */
+.left-btn {
+  background-color: white;
+  color: hsl(230, 100%, 50%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-right: 20px;
+  font-weight: bold;
+  min-width: 80px;
+}
+
+/* Card content text */
+.content {
+  flex-grow: 1;
+  font-size: 1.2rem;
+}

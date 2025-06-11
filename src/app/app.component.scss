@@ -37,7 +37,7 @@ ion-menu {
     --background: #fff;
 
     ion-list {
-    --background: #fff;
+      --background: #fff;
 
       margin: 0;
       padding: 0;
@@ -52,7 +52,7 @@ ion-menu {
         border-bottom: 1px solid #e0e0e0;
         margin: 0;
         --border-radius: 0;
-       border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
 
         ion-label {
           margin: 14px 0;
@@ -76,4 +76,39 @@ ion-menu {
       }
     }
   }
+
+
+  .custom-action-sheet {
+  --background: #121212;
+  --color: #ffffff;
+  --button-color: #ffffff;
+  --button-background-hover: #1e1e1e;
+  --backdrop-opacity: 0.6;
+
+  ion-action-sheet-group {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  ion-action-sheet-button {
+    --color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &:hover {
+      background: #1e1e1e;
+    }
+
+    &.action-sheet-cancel {
+      color: #ff5252;
+    }
+  }
+
+  ion-action-sheet-header {
+    --color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
 }

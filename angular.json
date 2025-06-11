@@ -33,7 +33,6 @@
             ],
             "styles": [
               "node_modules/swiper/swiper-bundle.min.css",
-                "node_modules/swiper/swiper.min.css",
               "src/global.scss",
               "src/theme/variables.scss"
             ],
@@ -66,7 +65,7 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true
             },
             "ci": {
@@ -82,7 +81,9 @@
               "buildTarget": "app:build:production"
             },
             "development": {
-              "buildTarget": "app:build:development"
+              "buildTarget": "app:build:development",
+              "liveReload": true,
+              "poll": 2000
             },
             "ci": {
               "progress": false
@@ -150,10 +151,12 @@
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
-      "styleext": "scss"
+      "styleext": "scss",
+      "standalone": true
     },
     "@ionic/angular-toolkit:page": {
-      "styleext": "scss"
+      "styleext": "scss",
+      "standalone": true
     }
   }
 }

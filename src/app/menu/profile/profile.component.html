@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button (click)="backToMenu()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <ion-avatar class="profile-avatar">
+      <img [src]="profileImage || 'assets/icon/default_profile.png'" alt="User Avatar" (click)="editMode && updateProfileImage()">
+    </ion-avatar>
+
+    <!-- Name -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Name</ion-label>
+      <ng-container *ngIf="!editMode">
+        <ion-text>{{ name }}</ion-text>
+      </ng-container>
+      <ion-input  [(ngModel)]="name" placeholder="Enter your name"></ion-input>
+    </ion-item>
+
+    <!-- Email -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Email</ion-label>
+        <ion-text>{{ email }}</ion-text>
+      <ion-input  type="email" [(ngModel)]="email" placeholder="Enter your email" readonly></ion-input>
+    </ion-item>
+
+    <!-- Mobile -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Mobile</ion-label>
+        <ion-text>{{ mobile }}</ion-text>
+      <ion-input type="tel" [(ngModel)]="mobile" placeholder="+91-XXXXXXXXXX" readonly></ion-input>
+    </ion-item>
+
+    <!-- Address -->
+    <ion-item lines="none">
+      <ion-label position="stacked">Address</ion-label>
+      <ng-container *ngIf="!editMode">
+        <ion-text>{{ address }}</ion-text>
+      </ng-container>
+      <ion-textarea  [(ngModel)]="address" placeholder="Enter your address"></ion-textarea>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Total Orders</ion-label>
+      <ion-note slot="end">{{ totalOrders }}</ion-note>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Orders Delivered</ion-label>
+      <ion-note slot="end">{{ ordersDelivered }}</ion-note>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="toggleEdit()">
+      {{ editMode ? 'Save Profile' : 'Edit Profile' }}
+    </ion-button>
+
+    <ion-button expand="block" color="medium" (click)="logout()">
+      Logout
+    </ion-button>
+
+  </div>
+</ion-content>

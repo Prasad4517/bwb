@@ -1,8 +1,9 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActionSheetController, Platform } from '@ionic/angular';
 import Swiper from 'swiper';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
+import { UserserviceService } from './userservice.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -10,11 +11,14 @@ import { Preferences } from '@capacitor/preferences';
   standalone: false,
 })
 export class AppComponent {
-  profileImage: string | null = null;
-  userName: string | null = null;
-  userEmail: string | null = null;
-  constructor(  private actionSheetCtrl: ActionSheetController,
-    private platform: Platform) {}
+     profileImage: string | null = null;
+     actionSheetCtrl: ActionSheetController;
+Image:Photo | null = null;
+ 
+  constructor(private userService: UserserviceService,
+     actionSheetCtrl: ActionSheetController) {
+    this.actionSheetCtrl = actionSheetCtrl;
+  }
 
   async openPhotoOptions() {
    const actionSheet = await this.actionSheetCtrl?.create({

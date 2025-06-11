@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  imports:[IonicModule]
+  standalone:true,
+  imports:[IonicModule],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MenuComponent  implements OnInit {
 

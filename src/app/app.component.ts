@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ActionSheetController, Platform } from '@ionic/angular';
-import Swiper from 'swiper';
+import { Component } from '@angular/core';
+import { ActionSheetController, MenuController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
 import { UserserviceService } from './userservice.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,50 +12,60 @@ import { UserserviceService } from './userservice.service';
   standalone: false,
 })
 export class AppComponent {
-     profileImage: string | null = null;
-     actionSheetCtrl: ActionSheetController;
-Image:Photo | null = null;
- 
-  constructor(private userService: UserserviceService,
-     actionSheetCtrl: ActionSheetController) {
-    this.actionSheetCtrl = actionSheetCtrl;
+  profileImage: string | null = null;
+  Image: Photo | null = null;
+
+  constructor(
+    private userService: UserserviceService,
+    private actionSheetCtrl: ActionSheetController,
+    private menu: MenuController,
+    private router: Router
+  ) {
+    // this.loadProfileImage();
   }
 
+  // async loadProfileImage() {
+  //   const { value } = await Preferences.get({ key: 'profileImage' });
+  //   this.profileImage = value;
+  // }
+
   async openPhotoOptions() {
-   const actionSheet = await this.actionSheetCtrl?.create({
-     header: 'Select Profile Picture',
-  cssClass: 'custom-action-sheet',
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Select Profile Picture',
+      cssClass: 'custom-action-sheet',
       buttons: [
         {
           text: 'Take Photo',
           icon: 'camera',
-          handler: () => this.takePhoto(CameraSource.Camera)
+          handler: () => this.takePhoto(CameraSource.Camera),
         },
         {
           text: 'Choose from Gallery',
           icon: 'image',
-          handler: () => this.takePhoto(CameraSource.Photos)
+          handler: () => this.takePhoto(CameraSource.Photos),
         },
         {
           text: 'Cancel',
           icon: 'close',
-          role: 'cancel'
-        }
-      ]
+          role: 'cancel',
+        },
+      ],
     });
-    await actionSheet?.present();
+    await actionSheet.present();
   }
-    updateProfileImage(){
-       console.log("Clicked!");
-  this.openPhotoOptions();
-    }
+
+  updateProfileImage() {
+    console.log('Clicked!');
+    this.openPhotoOptions();
+  }
+
   async takePhoto(source: CameraSource) {
     try {
-      const image = await Camera?.getPhoto({
+      const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
         resultType: CameraResultType.Uri,
-        source: source
+        source: source,
       });
 
       if (image.webPath) {
@@ -66,4 +77,8 @@ Image:Photo | null = null;
     }
   }
 
+  async navigateAndClose(menuId: string, route: string) {
+    await this.menu.close(menuId);
+    this.router.navigate([route]);
+  }
 }

@@ -12,22 +12,24 @@
       <!-- Profile Section -->
       <div style="text-align: center; padding: 16px;">
         <ion-avatar style="margin: 0 auto; width: 100px; height: 100px;">
-          <img [src]="profileImage || 'assets/icon/default_profile.png'" (click)="updateProfileImage()">
+          <img [src]="profileImage || 'assets/icon/default.png'" loading="lazy" (click)="updateProfileImage()">
         </ion-avatar>
+
         <ion-button size="small" fill="outline" color="medium" (click)="updateProfileImage()">
           Update Image
         </ion-button>
       </div>
 
       <ion-list>
-        <ion-item routerLink="/profile">Profile</ion-item>
-        <ion-item routerLink="/freecash">Free Cash</ion-item>
-        <ion-item routerLink="/contactus">Contact Us</ion-item>
-        <ion-item routerLink="/aboutus">About Us</ion-item>
-        <ion-item routerLink="/whatsnew">What's New</ion-item>
-        <ion-item routerLink="/help">Help & Support</ion-item>
-        <ion-item routerLink="/favourite">Favourite</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/profile')">Profile</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/freecash')">Free Cash</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/contactus')">Contact Us</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/aboutus')">About Us</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/whatsnew')">What's New</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/help')">Help & Support</ion-item>
+        <ion-item (click)="navigateAndClose('leftMenu', '/favourite')">Favourite</ion-item>
       </ion-list>
+
     </ion-content>
   </ion-menu>
 
@@ -42,6 +44,10 @@
       <ion-list>
         <ion-item>Notification 1</ion-item>
         <ion-item>Notification 2</ion-item>
+        <ion-item>Notification 3</ion-item>
+        <ion-item>Notification 4</ion-item>
+        <ion-item>Notification 5</ion-item>
+        <ion-item>Notification 6</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

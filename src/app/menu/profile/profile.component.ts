@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, MenuController } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
 import { UserserviceService } from 'src/app/userservice.service';
 
@@ -28,9 +28,11 @@ export class ProfileComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserserviceService,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private menu: MenuController
   ) {
     console.log('ProfileComponent constructor called');
+    
   }
 
   ngOnInit(): void {
@@ -65,6 +67,10 @@ export class ProfileComponent implements OnInit {
 
   logout() {
     console.log('Logged out');
+  }
+
+  goBackToMenu(){
+    this.menu.open('leftMenu');
   }
 }
 

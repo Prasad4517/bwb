@@ -3,7 +3,7 @@ import { ActionSheetController, MenuController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
 import { UserserviceService } from './userservice.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,73 +12,30 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class AppComponent {
+  public  hideheaderpages=['/profile', '/freecash','/favourite', '/contactus', '/aboutus', '/whatsnew', '/helpsupport'];
   profileImage: string | null = null;
   Image: Photo | null = null;
+    showAppHeader = true;
+
 
   constructor(
     private userService: UserserviceService,
     private actionSheetCtrl: ActionSheetController,
     private menu: MenuController,
-    private router: Router
+    public router: Router
   ) {
     // this.loadProfileImage();
-  }
-
-  // async loadProfileImage() {
-  //   const { value } = await Preferences.get({ key: 'profileImage' });
-  //   this.profileImage = value;
-  // }
-
-  async openPhotoOptions() {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Select Profile Picture',
-      cssClass: 'custom-action-sheet',
-      buttons: [
-        {
-          text: 'Take Photo',
-          icon: 'camera',
-          handler: () => this.takePhoto(CameraSource.Camera),
-        },
-        {
-          text: 'Choose from Gallery',
-          icon: 'image',
-          handler: () => this.takePhoto(CameraSource.Photos),
-        },
-        {
-          text: 'Cancel',
-          icon: 'close',
-          role: 'cancel',
-        },
-      ],
-    });
-    await actionSheet.present();
-  }
-
-  updateProfileImage() {
-    console.log('Clicked!');
-    this.openPhotoOptions();
-  }
-
-  async takePhoto(source: CameraSource) {
-    try {
-      const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: true,
-        resultType: CameraResultType.Uri,
-        source: source,
-      });
-
-      if (image.webPath) {
-        this.profileImage = image.webPath;
-        await Preferences.set({ key: 'profileImage', value: image.webPath });
+ this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // hide on /profile route
+        this.showAppHeader = !event.url.includes('/profile');
       }
-    } catch (error) {
-      console.log('Error taking photo', error);
-    }
-  }
+    });  }
 
   async navigateAndClose(menuId: string, route: string) {
     await this.menu.close(menuId);
     this.router.navigate([route]);
   }
+
+
 }

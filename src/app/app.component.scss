@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+    --background: #fff;
+
 }
+
+
 
 router-outlet {
   flex: 1;
@@ -13,6 +17,7 @@ router-outlet {
   height: 100%;
   display: flex;
   flex-direction: column;
+
 }
 
 ion-menu {
@@ -33,13 +38,14 @@ ion-menu {
     }
   }
 
-  ion-content {
-    --background: #fff;
-
-    ion-list {
+  
+    ion-content {
       --background: #fff;
-
-      margin: 0;
+    
+      ion-list {
+        --background: #fff;
+  
+        margin: 0;
       padding: 0;
 
       ion-item {
@@ -64,8 +70,8 @@ ion-menu {
         }
 
         &:hover {
-          --background: #fff;
-          color: #212121;
+          --background: #dc9999;
+          color: #fbfbfb;
           cursor: pointer;
         }
 
@@ -76,7 +82,21 @@ ion-menu {
       }
     }
   }
+.avatar {
+  width: 130px;
+  height: 130px;
+  border: 5px solid #d32f2f;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+  margin-bottom: 16px;
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 
   .custom-action-sheet {
   --background: #121212;
@@ -110,5 +130,14 @@ ion-menu {
     font-weight: bold;
   }
 }
+//  item-lines-default in-list {
+//   --ion-item-background: transparent;
+//   --ion-item-color: #ffffff;
+//   --ion-item-border-color: rgba(255, 255, 255, 0.1);
 
+// }
+app-header{
+  position: relative;
+  z-index: 500; 
+}
 }

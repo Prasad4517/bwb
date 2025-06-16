@@ -1,3 +1,58 @@
-<p>
-  contact-us works!
-</p>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackToMenu()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color:rgb(7, 7, 7)">Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding contact-page">
+
+  <div class="contact-card">
+
+    <h2>We'd love to hear from you!</h2>
+    <p>Have a question or feedback? Send us a message and we'll respond as soon as possible.</p>
+
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="contact.name" placeholder="Your Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input type="email" [(ngModel)]="contact.email" placeholder="Your Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-input type="tel" [(ngModel)]="contact.phone" placeholder="Your Phone Number"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-textarea auto-grow [(ngModel)]="contact.message" placeholder="Your Message"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" color="success" (click)="submitContactForm()">
+      Send Message
+    </ion-button>
+
+    <div class="contact-info">
+      <h3>Contact Details</h3>
+      <p><ion-icon name="mail" color="primary"></ion-icon> support&#64;bwbauctions.com</p>
+      <p><ion-icon name="call" color="primary"></ion-icon> +91-9876543210</p>
+      <p><ion-icon name="location" color="primary"></ion-icon> Pune, Maharashtra, India</p>
+    </div>
+
+    <div class="social-links">
+      <ion-icon name="logo-facebook" (click)="openLink('https://facebook.com')"></ion-icon>
+      <ion-icon name="logo-twitter" (click)="openLink('https://twitter.com')"></ion-icon>
+      <ion-icon name="logo-instagram" (click)="openLink('https://instagram.com')"></ion-icon>
+      <ion-icon name="logo-linkedin" (click)="openLink('https://linkedin.com')"></ion-icon>
+    </div>
+
+  </div>
+
+</ion-content>

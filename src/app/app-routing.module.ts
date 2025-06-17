@@ -7,7 +7,7 @@ import { ContactUSComponent } from './menu/contact-us/contact-us.component';
 import { AboutUsComponent } from './menu/about-us/about-us.component';
 import { WhatsNewComponent } from './menu/whats-new/whats-new.component';
 
-import { Tab1Page } from './tabs/tab1/tab1.page';
+import { storepage } from './tabs/tab1/store.page';
 
 const routes: Routes = [
   {
@@ -15,23 +15,23 @@ const routes: Routes = [
     loadComponent: () => import('./tabs/tabs.page').then(m => m.TabsPage),
     children: [
       {
-        path: 'tab1',
-        loadComponent: () => import('./tabs/tab1/tab1.page').then(m => m.Tab1Page)
+        path: 'store',
+        loadComponent: () => import('./tabs/tab1/store.page').then(m => m.storepage)
       },
       {
-        path: 'tab2',
-        loadComponent: () => import('./tabs/tab2/tab2.page').then(m => m.Tab2Page)
+        path: 'home',
+        loadComponent: () => import('./tabs/tab2/home.page').then(m => m.homepage)
       },
       {
-        path: 'tab3',
-        loadComponent: () => import('./tabs/tab3/tab3.page').then(m => m.Tab3Page)
+        path: 'orders',
+        loadComponent: () => import('./tabs/tab3/orders.page').then(m => m.orderspage)
       },{
         path:'auction',
         loadComponent: () => import('./tabs/tab4/auction.page').then(m => m.AuctionPage)
       },
       {
         path: '',
-        redirectTo: 'tab1',
+        redirectTo: 'store',
         pathMatch: 'full'
       }
     ]

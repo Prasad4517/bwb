@@ -3,14 +3,14 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-store',
+  templateUrl: 'store.page.html',
+  styleUrls: ['store.page.scss'],
   standalone: true,
   imports:[IonicModule,CommonModule],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Tab1Page {
+export class storepage {
 
   constructor() {}
 

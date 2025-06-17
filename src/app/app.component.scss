@@ -2,11 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-    --background: #fff;
-
+  --background: #fff;
 }
-
-
 
 router-outlet {
   flex: 1;
@@ -17,7 +14,6 @@ router-outlet {
   height: 100%;
   display: flex;
   flex-direction: column;
-
 }
 
 ion-menu {
@@ -31,47 +27,50 @@ ion-menu {
       text-align: center;
 
       ion-title {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: bold;
         letter-spacing: 0.5px;
       }
     }
   }
 
-  
-    ion-content {
+  ion-content {
+    color: #212121 !important;
+
+    .profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 0 12px;
+    }
+
+    ion-list {
       --background: #fff;
-    
-      ion-list {
-        --background: #fff;
-  
-        margin: 0;
-      padding: 0;
+      margin: 0;
+      padding: 0 0 16px;
 
       ion-item {
         --background: #fff;
         --color: #212121;
         font-size: 1rem;
         font-weight: 500;
-        padding-left: 16px;
+        padding-left: 10px;
         padding-right: 10px;
-        border-bottom: 1px solid #e0e0e0;
-        margin: 0;
-        --border-radius: 0;
-        border-bottom: 1px solid #e0e0e0;
+        margin: 8px 12px;
+        border-radius: 12px;
+        box-shadow: white;
+        transition: background 0.3s, transform 0.2s;
+        border: none; /* Removed underline */
+        --border-width: 0; /* Remove Ionic's native border */
 
         ion-label {
           margin: 14px 0;
         }
 
-        ion-icon {
-          color: #9e9e9e;
-          font-size: 18px;
-        }
-
         &:hover {
-          --background: #dc9999;
-          color: #fbfbfb;
+          --background: #f44336;
+          --color: #fff;
+          transform: translateY(-1px);
           cursor: pointer;
         }
 
@@ -82,23 +81,25 @@ ion-menu {
       }
     }
   }
-.avatar {
-  width: 130px;
-  height: 130px;
-  border: 5px solid #d32f2f;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
-  margin-bottom: 16px;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .avatar {
+    width: 130px;
+    height: 130px;
+    border: 5px solid #d32f2f;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    margin-bottom: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 
-  .custom-action-sheet {
+.custom-action-sheet {
   --background: #121212;
   --color: #ffffff;
   --button-color: #ffffff;
@@ -130,14 +131,12 @@ ion-menu {
     font-weight: bold;
   }
 }
-//  item-lines-default in-list {
-//   --ion-item-background: transparent;
-//   --ion-item-color: #ffffff;
-//   --ion-item-border-color: rgba(255, 255, 255, 0.1);
 
-// }
-app-header{
+app-header {
   position: relative;
-  z-index: 500; 
+  z-index: 500;
 }
+
+.list-md {
+  background: #ffffff;
 }

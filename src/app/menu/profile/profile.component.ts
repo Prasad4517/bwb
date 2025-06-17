@@ -69,8 +69,9 @@ export class ProfileComponent implements OnInit {
     console.log('Logged out');
   }
 
-  goBackToMenu(){
-    this.menu.open('leftMenu');
+  goBackToStore(){
+    // this.menu.open('leftMenu');
+    this.router.navigate(['/store']);
   }
 }
 

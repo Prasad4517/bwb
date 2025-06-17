@@ -72,8 +72,9 @@ export class FreecashComponent implements OnInit {
     await toast.present();
   }
 
-  goBackToMenu() {
+  goBackToStore() {
     // window.history.back();
-       this.menu.open('leftMenu');
+      //  this.menu.open('leftMenu');
+      this.router.navigate(['/store']);
   }
 }

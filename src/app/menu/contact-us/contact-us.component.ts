@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController, IonicModule, MenuController } from '@ionic/angular';
 
 @Component({
@@ -20,7 +21,8 @@ export class ContactUSComponent    {
   };
 
   constructor(private alertController: AlertController,
-    private menu: MenuController
+    private menu: MenuController,
+    private router :Router
   ) {}
 
   async submitContactForm() {
@@ -52,7 +54,8 @@ export class ContactUSComponent    {
   openLink(url: string) {
     window.open(url, '_blank');
   }
-   goBackToMenu(){
-    this.menu.open('leftMenu');
+   goBackToStore(){
+    // this.menu.open('leftMenu');
+    this.router.navigate(['/store']);
   }
 }

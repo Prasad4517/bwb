@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule, IonTab } from '@ionic/angular';
 
 @Component({
+
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],

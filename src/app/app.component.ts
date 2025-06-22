@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActionSheetController, MenuController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Preferences } from '@capacitor/preferences';
-import { UserserviceService } from './userservice.service';
+import { UserserviceService } from './Services/userservice.service';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({

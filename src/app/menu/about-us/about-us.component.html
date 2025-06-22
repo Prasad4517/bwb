@@ -1,3 +1,29 @@
-<p>
-  about-us works!
-</p>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackToStore()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color:rgb(7, 7, 7)">About us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="about-container" *ngIf="aboutUsInfo">
+    <div class="about-card">
+      <h1>{{ aboutUsInfo.title }}</h1>
+      <p class="description">{{ aboutUsInfo.description }}</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Our Vision</h2>
+      <p>{{ aboutUsInfo.vision }}</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Our Mission</h2>
+      <p>{{ aboutUsInfo.mission }}</p>
+    </div>
+  </div>
+</ion-content>

@@ -1,3 +1,30 @@
-<p>
-  favourite works!
-</p>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackToStore()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color: #111">Favourites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="favoriteProducts.length === 0" class="empty-state">
+    <ion-icon name="heart-outline"></ion-icon>
+    <p>No favorites added yet.</p>
+  </div>
+
+  <div class="product-grid" *ngIf="favoriteProducts.length > 0">
+    <div *ngFor="let product of favoriteProducts" class="product-card">
+      <div class="remove-icon">
+        <ion-icon name="close-circle" (click)="removeFromFavorites(product.id)"></ion-icon>
+      </div>
+      <img [src]="product.image" alt="{{ product.name }}" />
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p class="price">₹{{ product.price | number }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

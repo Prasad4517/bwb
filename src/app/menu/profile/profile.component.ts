@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule, MenuController } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
-import { UserserviceService } from 'src/app/userservice.service';
+import { UserserviceService } from 'src/app/Services/userservice.service';
 
 @Component({
   templateUrl: './profile.component.html',

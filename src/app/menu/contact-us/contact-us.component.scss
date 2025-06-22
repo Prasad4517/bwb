@@ -2,7 +2,7 @@
   background: #ffffff;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   margin: 20px 0;
 
   h2 {
@@ -34,6 +34,10 @@
     --background: #f9f9f9;
     border-radius: 8px;
     padding: 12px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-radius: 8px;
+    --color: rgb(13, 12, 12);
   }
 
   ion-button {
@@ -81,4 +85,12 @@
       }
     }
   }
+
+}
+
+ion-input {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 8px;
+  --color: rgb(13, 12, 12);
 }

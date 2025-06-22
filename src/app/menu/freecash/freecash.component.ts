@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule, MenuController, ToastController } from '@ionic/angular';
-import { ReferalserviceService } from 'src/app/referalservice.service';
+import { ReferalserviceService } from 'src/app/Services/referalservice.service';
 
 @Component({
   selector: 'app-freecash',

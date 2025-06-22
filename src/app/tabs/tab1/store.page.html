@@ -1,70 +1,79 @@
-<ion-content>
-  <swiper-container slides-per-view="1" pagination='{"clickable": false}' loop="true" autoplay-delay="3000">
-    <swiper-slide>
-      <div class="card1 ">
-        <button class="left-btn">Buy</button>
-        <!-- <img src="assets/p13_edited.jpg" alt="Slide 1"> -->
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <!-- <img src="assets/trishul.jpg" alt="Slide 2"> -->
-      <div class="card1 ">
-        <button class="left-btn">Buy</button>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <!-- <img src="assets/20200621_215203.jpg" alt="Slide 3"> -->
-      <div class="card1 ">
-        <button class="left-btn">Buy</button>
-      </div>
-    </swiper-slide>
-  </swiper-container>
+<ion-content [fullscreen]="true">
+  <!-- Filters -->
+  <div class="filter-bar col-2">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="applyFiltersName()" placeholder="Search product...">
+    </ion-searchbar>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <!-- First Column -->
+      <ion-col size="8">
+        <div class="category-div">
+          <ion-select class="dropdown" [(ngModel)]="selectedCategory" placeholder="Category" interface="popover"
+            (ionChange)="applyFilters()">
+
+            <ion-select-option value="">All</ion-select-option>
+            <ion-select-option value="bikes">Bikes</ion-select-option>
+            <ion-select-option value="properties">Properties</ion-select-option>
+            <ion-select-option value="Electronics & Appliances">Electronics & Appliances</ion-select-option>
+            <ion-select-option value="mobiles">Mobiles</ion-select-option>
+            <ion-select-option value="Commercial Vehicles & Spares">Commercial Vehicles & Spares</ion-select-option>
+            <ion-select-option value="jobs">Jobs</ion-select-option>
+            <ion-select-option value="furniture">Furniture</ion-select-option>
+            <ion-select-option value="fashion">Fashion</ion-select-option>
+            <ion-select-option value="pets">Pets</ion-select-option>
+            <ion-select-option value="books, sports & hobbies">Books, Sports & Hobbies</ion-select-option>
+            <ion-select-option value="tours & travel">Tours & Travel</ion-select-option>
+
+          </ion-select>
+        </div>
+      </ion-col>
+
+      <!-- Second Column (empty or future content) -->
+      <!-- <ion-col size="4"> -->
+        <!-- You can add searchbar, or other controls here -->
+      <!-- </ion-col> -->
+
+      <!-- Third Column (empty or future content) -->
+      <!-- <ion-col size="4"> -->
+        <!-- You can add price range, sort options etc here -->
+      <!-- </ion-col> -->
+
+    </ion-row>
+  </ion-grid>
 
 
-
-
-  <swiper-container slides-per-view="1" pagination='{"clickable": false}' loop="true" autoplay-delay="3000">
-    <swiper-slide>
-      <div class="card">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 1 Content</div>
+  <!-- Product List -->
+  <div class="product-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="product.image" alt="{{ product.name }}" />
+  
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p class="price">₹{{ product.price | number }}
+          <ion-button fill="clear" color="danger" (click)="addToFavorites(product)">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+        </p>
+        <p class="date">Posted: {{ product.datePosted | date: 'mediumDate' }}</p>
+  
+        <ion-grid>
+          <ion-row>
+            <!-- First Column -->
+            <ion-col size="6">
+              <ion-button expand="block" color="success" (click)="Buy(product)">
+                Buy 
+              </ion-button>
+            </ion-col>   
+             <ion-col size="6">
+              <ion-button expand="block" color="success" (click)="bargain(product)">
+                Bargain
+              </ion-button>
+            </ion-col>     
+          </ion-row>
+           
+        </ion-grid>
       </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="card">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 2 Content</div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="card">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 3 Content</div>
-      </div>
-    </swiper-slide>
-  </swiper-container>
-
-
-
-
-  <swiper-container slides-per-view="1" pagination='{"clickable": false}' loop="true" autoplay-delay="3000">
-    <swiper-slide>
-      <div class="card1">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 1 Content</div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="card1">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 2 Content</div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="card1">
-        <button class="left-btn">Buy</button>
-        <div class="content">Card 3 Content</div>
-      </div>
-    </swiper-slide>
-  </swiper-container>
-</ion-content>
+    </div>
+  </div>
+  </ion-content>

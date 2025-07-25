@@ -120,12 +120,13 @@ ion-content {
   .filter-bar {
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 50px;
 
     ion-searchbar,
     ion-select {
       flex: 1 1 100%;
     }
+
   }
 }
 ion-searchbar{

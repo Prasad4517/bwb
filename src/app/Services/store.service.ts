@@ -54,19 +54,19 @@ return of([
   { id: 24, name: 'Ray-Ban Sunglasses', price: 5999, category: 'Fashion', image: 'assets/photos/sunglasses.jpg', datePosted: '2025-05-22' },
 
   // Pets
-  { id: 25, name: 'Labrador Puppy', price: 15000, category: 'Pets', image: 'assets/images/labrador.jpg', datePosted: '2025-05-21' },
-  { id: 26, name: 'Persian Kitten', price: 12000, category: 'Pets', image: 'assets/images/kitten.jpg', datePosted: '2025-05-20' },
-  { id: 27, name: 'Bird Cage', price: 4500, category: 'Pets', image: 'assets/images/birdcage.jpg', datePosted: '2025-05-19' },
+  { id: 25, name: 'Labrador Puppy', price: 15000, category: 'Pets', image: 'assets/photos/labrador.jpeg', datePosted: '2025-05-21' },
+  { id: 26, name: 'Persian Kitten', price: 12000, category: 'Pets', image: 'assets/photos/persiankitten.jpg', datePosted: '2025-05-20' },
+  { id: 27, name: 'Bird Cage', price: 4500, category: 'Pets', image: 'assets/photos/Birdcage.jpg', datePosted: '2025-05-19' },
 
   // Books, Sports & Hobbies
-  { id: 28, name: 'Harry Potter Book Set', price: 2999, category: 'Books, Sports & Hobbies', image: 'assets/images/harrypotter.jpg', datePosted: '2025-05-18' },
-  { id: 29, name: 'Cricket Bat', price: 2500, category: 'Books, Sports & Hobbies', image: 'assets/images/cricketbat.jpg', datePosted: '2025-05-17' },
-  { id: 30, name: 'Acoustic Guitar', price: 7500, category: 'Books, Sports & Hobbies', image: 'assets/images/guitar.jpg', datePosted: '2025-05-16' },
+  { id: 28, name: 'Harry Potter Book Set', price: 2999, category: 'Books, Sports & Hobbies', image: 'assets/photos/harrypotter.jpeg', datePosted: '2025-05-18' },
+  { id: 29, name: 'Cricket Bat', price: 2500, category: 'Books, Sports & Hobbies', image: 'assets/photos/cricketbat.jpeg', datePosted: '2025-05-17' },
+  { id: 30, name: 'Acoustic Guitar', price: 7500, category: 'Books, Sports & Hobbies', image: 'assets/photos/AcousticGuitar.jpeg', datePosted: '2025-05-16' },
 
   // Tours & Travel
-  { id: 31, name: 'Goa Holiday Package', price: 15000, category: 'Tours & Travel', image: 'assets/images/goa.jpg', datePosted: '2025-05-15' },
-  { id: 32, name: 'Kashmir Tour Package', price: 25000, category: 'Tours & Travel', image: 'assets/images/kashmir.jpg', datePosted: '2025-05-14' },
-  { id: 33, name: 'Thailand Honeymoon Package', price: 45000, category: 'Tours & Travel', image: 'assets/images/thailand.jpg', datePosted: '2025-05-13' },
+  { id: 31, name: 'Goa Holiday Package', price: 15000, category: 'Tours & Travel', image: 'assets/photos/goaholiday.jpeg', datePosted: '2025-05-15' },
+  { id: 32, name: 'Kashmir Tour Package', price: 25000, category: 'Tours & Travel', image: 'assets/photos/kashmirtour.jpeg', datePosted: '2025-05-14' },
+  { id: 33, name: 'Thailand Honeymoon Package', price: 45000, category: 'Tours & Travel', image: 'assets/photos/Thailandhoneymoon.jpeg', datePosted: '2025-05-13' },
 ]);
 
 

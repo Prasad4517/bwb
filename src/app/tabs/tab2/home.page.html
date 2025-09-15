@@ -1,15 +1,51 @@
-<ion-content>
-  <swiper-container>
-      <swiper-slide>
-        <div class="card">
-          >Slide 1
-        </div  >
+<ion-content fullscreen>
+
+  <!-- 🔥 Bargain Banner Swiper -->
+  <div class="banner-section">
+    <h2 class="section-title">💬 Bargain Deals</h2>
+
+    <swiper-container
+      [slidesPerView]="1.1"
+      [loop]="true"
+      [autoplay]="{ delay: 2500 }"
+      effect="coverflow"
+      centered-slides="true"
+      class="custom-swiper"
+    >
+      <swiper-slide *ngFor="let banner of bargainBanners">
+        <div class="banner-card">
+          <img [src]="banner.image" class="banner-img" />
+          <div class="banner-overlay">
+            <h3>{{ banner.title }}</h3>
+            <p>{{ banner.subtitle }}</p>
+            <ion-button expand="block" shape="round" (click)="goToStore()">
+              Start Bargaining
+            </ion-button>
+          </div>
+        </div>
       </swiper-slide>
-      <swiper-slide>
-        <div class="card" >Slide 2</div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="card" >Slide 3</div>
-      </swiper-slide>
+    </swiper-container>
+  </div>
+
+ <!-- 🏆 Auction Banner Swiper -->
+<div class="banner-section">
+  <h2 class="section-title">🏆 Auctions</h2>
+
+  <swiper-container
+    [config]="auctionSlideOpts"
+    class="custom-swiper"
+  >
+    <swiper-slide *ngFor="let auction of auctionBanners">
+      <div class="banner-card auction-card">
+        <img [src]="auction.image" class="banner-img" />
+        <div class="banner-overlay">
+          <h3>{{ auction.title }}</h3>
+          <p>{{ auction.subtitle }}</p>
+          <ion-button color="warning" expand="block" shape="round" (click)="joinAuction()">
+            Join Auction
+          </ion-button>
+        </div>
+      </div>
+    </swiper-slide>
   </swiper-container>
-</ion-content>
+</div>

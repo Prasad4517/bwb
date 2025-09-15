@@ -83,7 +83,7 @@ export class storepage {
       console.log(
         `👉 Checking Product: ${product.name} | Category: ${product.category}`
       );
-
+ 
       const searchTermMath =
         this.searchTerm === '' ||
         product.name.toLowerCase() === this.searchTerm.toLowerCase();

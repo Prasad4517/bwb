@@ -1,18 +1,43 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+  --app-color-primary: #6d4aff;
+  --app-color-primary-dark: #5031d7;
+  --app-color-primary-soft: #eeeaff;
+  --app-color-accent: #ff6b4a;
+  --app-color-accent-soft: #fff0ec;
+  --app-color-highlight: #c8ff62;
+  --app-color-surface: #ffffff;
+  --app-color-surface-muted: #f5f4fa;
+  --app-color-background: #f7f6fb;
+  --app-color-border: #e8e5f0;
+  --app-color-text: #171522;
+  --app-color-text-muted: #716d80;
+  --app-radius-sm: 12px;
+  --app-radius-md: 16px;
+  --app-radius-lg: 24px;
+  --app-radius-xl: 32px;
+  --app-shadow-card: 0 8px 28px rgb(41 34 72 / 8%);
+  --app-shadow-elevated: 0 20px 48px rgb(41 34 72 / 18%);
+  --app-content-max-width: 1240px;
+  --app-content-narrow-width: 760px;
+  --app-page-padding: clamp(12px, 3vw, 32px);
+  --app-section-gap: clamp(20px, 4vw, 40px);
+  --app-touch-target: 44px;
 
-    :root {
-  --ion-background-color: #ffffff !important;
+  --ion-color-primary: #6d4aff;
+  --ion-color-primary-rgb: 109, 74, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #6041e0;
+  --ion-color-primary-tint: #7c5cff;
+  --ion-color-danger: #ef476f;
+  --ion-background-color: #f7f6fb;
+  --ion-text-color: #171522;
   --ion-tab-bar-background: #ffffff;
-  --ion-tab-bar-color: #333333;
-  --ion-tab-bar-color-selected: #d32f2f;
+  --ion-tab-bar-color: #817c90;
+  --ion-tab-bar-color-selected: #6d4aff;
 }
 
-ion-content, ion-tab-bar {
-  --background: #ffffff ;
-  background-color: #ffffff ;
-}
-
-html, body {
+html,
+body {
   color-scheme: light;
 }

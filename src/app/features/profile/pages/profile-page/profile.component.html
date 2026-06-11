@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button aria-label="Go back" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    @if (!editMode()) {
+      <ion-buttons slot="end">
+        <ion-button (click)="startEditing()">Edit</ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="profile-page">
+    <section class="profile-hero">
+      <button
+        class="avatar-button"
+        type="button"
+        aria-label="Update profile photo"
+        (click)="updateProfileImage()"
+      >
+        <ion-avatar>
+          <img [src]="profile().avatarUrl || 'assets/icon/default.png'" alt="" />
+        </ion-avatar>
+        <span class="camera-button">
+          <ion-icon name="camera-outline"></ion-icon>
+        </span>
+      </button>
+      <h1>{{ profile().name }}</h1>
+      <p>{{ profile().email }}</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Order statistics">
+      <article>
+        <span>Total orders</span>
+        <strong>{{ profile().totalOrders }}</strong>
+      </article>
+      <article>
+        <span>Delivered</span>
+        <strong>{{ profile().ordersDelivered }}</strong>
+      </article>
+    </section>
+
+    @if (editMode()) {
+      <form class="profile-card" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <h2>Edit details</h2>
+
+        <ion-input
+          fill="outline"
+          formControlName="name"
+          label="Name"
+          labelPlacement="stacked"
+          placeholder="Enter your full name"
+        ></ion-input>
+        @if (hasError('name', 'required') || hasError('name', 'minlength')) {
+          <p class="field-error">Enter at least 2 characters.</p>
+        }
+
+        <ion-input
+          fill="outline"
+          formControlName="email"
+          label="Email"
+          labelPlacement="stacked"
+          type="email"
+        ></ion-input>
+        @if (hasError('email', 'required') || hasError('email', 'email')) {
+          <p class="field-error">Enter a valid email address.</p>
+        }
+
+        <ion-input
+          fill="outline"
+          formControlName="mobile"
+          label="Mobile"
+          labelPlacement="stacked"
+          type="tel"
+        ></ion-input>
+        @if (hasError('mobile', 'required') || hasError('mobile', 'pattern')) {
+          <p class="field-error">Enter a valid mobile number.</p>
+        }
+
+        <ion-textarea
+          autoGrow="true"
+          fill="outline"
+          formControlName="address"
+          label="Address"
+          labelPlacement="stacked"
+          rows="3"
+        ></ion-textarea>
+        @if (hasError('address', 'required') || hasError('address', 'minlength')) {
+          <p class="field-error">Enter a complete delivery address.</p>
+        }
+
+        <div class="form-actions">
+          <ion-button fill="outline" type="button" (click)="cancelEditing()">Cancel</ion-button>
+          <ion-button [disabled]="saving()" type="submit">
+            @if (saving()) {
+              <ion-spinner name="crescent"></ion-spinner>
+            } @else {
+              Save changes
+            }
+          </ion-button>
+        </div>
+      </form>
+    } @else {
+      <section class="profile-card">
+        <h2>Personal details</h2>
+        <dl class="details-list">
+          <div>
+            <dt><ion-icon name="person-outline"></ion-icon>Name</dt>
+            <dd>{{ profile().name }}</dd>
+          </div>
+          <div>
+            <dt><ion-icon name="mail-outline"></ion-icon>Email</dt>
+            <dd>{{ profile().email }}</dd>
+          </div>
+          <div>
+            <dt><ion-icon name="call-outline"></ion-icon>Mobile</dt>
+            <dd>{{ profile().mobile }}</dd>
+          </div>
+          <div>
+            <dt><ion-icon name="location-outline"></ion-icon>Address</dt>
+            <dd>{{ profile().address }}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <ion-button class="logout-button" expand="block" fill="clear" (click)="confirmLogout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Log out
+      </ion-button>
+    }
+  </main>
+</ion-content>

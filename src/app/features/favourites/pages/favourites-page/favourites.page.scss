@@ -1,0 +1,10 @@
+ion-header ion-toolbar { --background: var(--app-color-primary); --color: #fff; }
+ion-content { --background: var(--app-color-background); }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: clamp(12px, 2vw, 20px); }
+.product-card { position: relative; min-width: 0; overflow: hidden; }
+.product-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.product-card > div { display: grid; gap: 6px; padding: 14px; }
+.product-card h2 { margin: 0; color: var(--app-color-text); font-size: .95rem; }
+.product-card strong { color: var(--app-color-primary); }
+.remove-button { position: absolute; z-index: 2; top: 9px; right: 9px; width: var(--app-touch-target); height: var(--app-touch-target); display: grid; place-items: center; color: var(--app-color-primary); background: rgb(255 255 255 / 92%); border: 0; border-radius: 50%; cursor: pointer; }
+.app-empty-state ion-icon { color: var(--app-color-primary); font-size: 3rem; }

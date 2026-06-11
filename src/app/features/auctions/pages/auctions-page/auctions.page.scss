@@ -1,0 +1,17 @@
+ion-content { --background: var(--app-color-background); }
+.auction-page { padding-bottom: calc(var(--app-page-padding) + 12px); }
+.auction-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(12px, 2vw, 20px); }
+.auction-card { min-width: 0; overflow: hidden; border-color: transparent; }
+.auction-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+  img { width: 100%; height: 100%; object-fit: cover; transition: transform 300ms ease; }
+  span { position: absolute; top: 10px; left: 10px; display: flex; align-items: center; gap: 5px; padding: 6px 9px; color: #fff; font-size: .68rem; font-weight: 800; background: var(--app-color-accent); border-radius: 999px; box-shadow: 0 8px 18px rgb(255 107 74 / 28%); }
+}
+@media (hover: hover) { .auction-card:hover { transform: translateY(-4px); border-color: rgb(109 74 255 / 22%); box-shadow: var(--app-shadow-elevated); } .auction-card:hover img { transform: scale(1.04); } }
+.auction-copy { display: grid; gap: 14px; padding: 16px;
+  h2 { margin: 0; color: var(--app-color-text); font-size: 1rem; }
+  dl { display: grid; gap: 8px; margin: 0; }
+  dl div { display: flex; justify-content: space-between; gap: 12px; }
+  dt { color: var(--app-color-text-muted); font-size: .75rem; }
+  dd { margin: 0; color: var(--app-color-text); font-size: .78rem; font-weight: 700; text-align: right; }
+  ion-button { --border-radius: 10px; margin: 0; }
+}

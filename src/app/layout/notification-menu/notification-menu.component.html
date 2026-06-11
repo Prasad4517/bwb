@@ -1,0 +1,51 @@
+<ion-menu side="end" menuId="notificationsMenu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Notifications</ion-title>
+      <ion-buttons slot="end">
+        <ion-button
+          [disabled]="unreadCount() === 0"
+          aria-label="Mark all notifications as read"
+          (click)="markAllAsRead()"
+        >
+          <ion-icon name="checkmark-done-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    @if (notifications().length === 0) {
+      <section class="empty-state">
+        <ion-icon name="notifications-off-outline"></ion-icon>
+        <h2>You're all caught up</h2>
+        <p>New activity will appear here.</p>
+      </section>
+    } @else {
+      <ion-list lines="none">
+        @for (notification of notifications(); track notification.id) {
+          <ion-item
+            button
+            detail="false"
+            [class.unread]="!notification.read"
+            (click)="openNotification(notification)"
+          >
+            <span class="notification-icon" slot="start">
+              <ion-icon [name]="iconFor(notification.type)"></ion-icon>
+            </span>
+            <ion-label>
+              <span class="title-row">
+                <strong>{{ notification.title }}</strong>
+                @if (!notification.read) {
+                  <span aria-label="Unread" class="unread-dot"></span>
+                }
+              </span>
+              <p>{{ notification.message }}</p>
+              <time>{{ notification.createdAt | date: 'MMM d, h:mm a' }}</time>
+            </ion-label>
+          </ion-item>
+        }
+      </ion-list>
+    }
+  </ion-content>
+</ion-menu>

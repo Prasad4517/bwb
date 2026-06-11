@@ -1,0 +1,5 @@
+ion-content { --background: var(--app-color-background); }
+.app-empty-state { margin: auto; }
+.app-empty-state ion-icon { color: var(--app-color-primary); font-size: 3rem; }
+.app-empty-state h1 { margin-bottom: 0; color: var(--app-color-text); font-size: 1.25rem; }
+.app-empty-state p { max-width: 36ch; margin: 8px 0 16px; }

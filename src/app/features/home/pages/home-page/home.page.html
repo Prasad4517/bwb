@@ -1,0 +1,119 @@
+<ion-content>
+  <main class="home-page app-page">
+    <section class="hero app-card">
+      <img src="assets/photos/commercialoffice.jpg" alt="" />
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <span class="eyebrow">Buy. Bargain. Bid.</span>
+        <h1>Discover better deals, your way.</h1>
+        <p>
+          Explore trusted local listings, negotiate directly, or join live auctions
+          from one marketplace.
+        </p>
+        <div class="hero-actions">
+          <ion-button (click)="goToStore()">
+            Explore marketplace
+            <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-button>
+          <ion-button fill="outline" color="light" (click)="joinAuction()">
+            View auctions
+          </ion-button>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip app-card" aria-label="Marketplace benefits">
+      <article>
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <span><strong>Trusted listings</strong><small>Browse with confidence</small></span>
+      </article>
+      <article>
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <span><strong>Direct bargains</strong><small>Agree on the right price</small></span>
+      </article>
+      <article>
+        <ion-icon name="flash-outline"></ion-icon>
+        <span><strong>Live auctions</strong><small>Bid on limited-time deals</small></span>
+      </article>
+    </section>
+
+    <section class="quick-actions">
+      <button class="quick-action app-card" type="button" (click)="goToStore()">
+        <span><ion-icon name="search-outline"></ion-icon></span>
+        <strong>Browse listings</strong>
+        <small>Find something worth buying</small>
+      </button>
+      <button class="quick-action app-card" type="button" (click)="joinAuction()">
+        <span><ion-icon name="hammer-outline"></ion-icon></span>
+        <strong>Join an auction</strong>
+        <small>Compete for standout deals</small>
+      </button>
+      <button class="quick-action app-card" type="button" (click)="openFavourites()">
+        <span><ion-icon name="heart-outline"></ion-icon></span>
+        <strong>Saved favourites</strong>
+        <small>Return to products you like</small>
+      </button>
+    </section>
+
+    <section class="home-section">
+      <div class="app-page-header">
+        <div>
+          <span class="eyebrow eyebrow--dark">Curated for you</span>
+          <h2>Featured opportunities</h2>
+          <p>Popular listings selected from across the marketplace.</p>
+        </div>
+        <ion-button fill="clear" (click)="goToStore()">View all</ion-button>
+      </div>
+
+      <div class="featured-grid">
+        @for (product of featuredProducts; track product.id) {
+          <article class="product-card app-card">
+            <div class="product-media">
+              <img [src]="product.image" [alt]="product.name" loading="lazy" />
+              <span>{{ product.tag }}</span>
+            </div>
+            <div class="product-copy">
+              <small>{{ product.category }}</small>
+              <h3>{{ product.name }}</h3>
+              <strong>{{ product.price | currency: 'INR':'symbol':'1.0-0' }}</strong>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="app-page-header">
+        <div>
+          <span class="eyebrow eyebrow--dark">Time-sensitive deals</span>
+          <h2>Auctions worth watching</h2>
+          <p>Place a bid before these opportunities close.</p>
+        </div>
+        <ion-button fill="clear" (click)="joinAuction()">See auctions</ion-button>
+      </div>
+
+      <div class="auction-grid">
+        @for (auction of auctionBanners; track auction.title) {
+          <button class="auction-card app-card" type="button" (click)="joinAuction()">
+            <img [src]="auction.image" alt="" loading="lazy" />
+            <span class="auction-overlay"></span>
+            <span class="auction-copy">
+              <small><ion-icon name="radio-button-on-outline"></ion-icon> Live opportunity</small>
+              <strong>{{ auction.title }}</strong>
+              <span>{{ auction.subtitle }}</span>
+            </span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <section class="closing-banner app-card">
+      <div>
+        <span class="eyebrow eyebrow--dark">A smarter marketplace</span>
+        <h2>Ready to find your next deal?</h2>
+        <p>Explore listings across vehicles, homes, electronics, furniture, and more.</p>
+      </div>
+      <ion-button (click)="goToStore()">Start exploring</ion-button>
+    </section>
+  </main>
+</ion-content>

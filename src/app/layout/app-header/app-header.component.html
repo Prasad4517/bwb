@@ -1,0 +1,28 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button
+        aria-label="Open navigation"
+        autoHide="false"
+        menu="leftMenu"
+      ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ title() }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-menu-toggle menu="notificationsMenu" autoHide="false">
+        <ion-button
+          aria-label="Open notifications"
+          class="notification-button"
+          fill="clear"
+        >
+          <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+          @if (unreadCount() > 0) {
+            <ion-badge color="light">{{ unreadCount() > 9 ? '9+' : unreadCount() }}</ion-badge>
+          }
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

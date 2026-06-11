@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackToStore()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>What's new</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="updates-container">
+    <div *ngFor="let update of updates" class="update-card">
+      <h2>{{ update.title }}</h2>
+      <p class="description">{{ update.description }}</p>
+      <p class="date">{{ update.date | date: 'mediumDate' }}</p>
+    </div>
+  </div>
+</ion-content>

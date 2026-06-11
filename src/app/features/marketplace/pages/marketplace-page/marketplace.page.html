@@ -1,0 +1,47 @@
+<ion-content>
+  <main class="store-page app-page">
+    <section class="store-intro">
+      <div><span>Marketplace</span><h1>Find the right deal</h1><p>Search local listings and bargain directly with sellers.</p></div>
+      <strong>{{ listings().length }} listings</strong>
+    </section>
+
+    <section class="filter-panel app-card" aria-label="Marketplace filters">
+      <ion-searchbar [ngModel]="searchTerm" debounce="250" placeholder="Search products" (ngModelChange)="updateSearchTerm($event)"></ion-searchbar>
+      <ion-select [ngModel]="selectedCategory" fill="outline" interface="popover" label="Category" labelPlacement="stacked" (ngModelChange)="updateCategory($event)">
+        <ion-select-option value="">All categories</ion-select-option>
+        <ion-select-option value="Bikes">Bikes</ion-select-option>
+        <ion-select-option value="Properties">Properties</ion-select-option>
+        <ion-select-option value="Electronics & Appliances">Electronics & Appliances</ion-select-option>
+        <ion-select-option value="Mobiles">Mobiles</ion-select-option>
+        <ion-select-option value="Commercial Vehicles & Spares">Commercial Vehicles & Spares</ion-select-option>
+        <ion-select-option value="Furniture">Furniture</ion-select-option>
+        <ion-select-option value="Fashion">Fashion</ion-select-option>
+        <ion-select-option value="Pets">Pets</ion-select-option>
+        <ion-select-option value="Books, Sports & Hobbies">Books, Sports & Hobbies</ion-select-option>
+        <ion-select-option value="Tours & Travel">Tours & Travel</ion-select-option>
+      </ion-select>
+      <ion-button fill="clear" (click)="clearFilters()">Clear</ion-button>
+    </section>
+
+    @if (listings().length === 0) {
+      <section class="app-empty-state"><ion-icon name="search-outline"></ion-icon><h2>No listings found</h2><p>Try changing your search or category filter.</p><ion-button fill="outline" (click)="clearFilters()">Reset filters</ion-button></section>
+    } @else {
+      <section class="product-grid">
+        @for (product of listings(); track product.id) {
+          <article class="product-card app-card">
+            <div class="product-media">
+              <img [src]="product.image" [alt]="product.name" loading="lazy" />
+              <button type="button" aria-label="Add to favourites" (click)="addToFavorites(product)"><ion-icon name="heart-outline"></ion-icon></button>
+            </div>
+            <div class="product-info">
+              <span>{{ product.category }}</span><h2>{{ product.name }}</h2>
+              <strong>{{ product.price | currency: 'INR':'symbol':'1.0-0' }}</strong>
+              <small>Posted {{ product.datePosted | date: 'mediumDate' }}</small>
+              <div class="product-actions"><ion-button fill="outline" (click)="bargain(product)">Bargain</ion-button><ion-button (click)="buy(product)">Buy now</ion-button></div>
+            </div>
+          </article>
+        }
+      </section>
+    }
+  </main>
+</ion-content>

@@ -25,81 +25,174 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
-
-/* Ion content wrapper to allow vertical scroll if needed */
-ion-content {
-  overflow-y: auto;
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-
-  /* Hide scrollbar cross-browser */
-  scrollbar-width: none;         /* Firefox */
-  -ms-overflow-style: none;      /* IE and Edge */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+html,
+body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  background: var(--app-color-background);
+  font-family: Inter, "SF Pro Display", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Hide scrollbar in WebKit browsers inside ion-content's native scroll container */
-ion-content::part(native)::-webkit-scrollbar {
-  display: none;
+html,
+body,
+app-root,
+ion-app {
+  height: 100%;
+  min-height: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
 
-/* Custom Dark-Themed Action Sheet */
-.custom-action-sheet::part(content) {
-  background: #1e1e1e;
+ion-content,
+ion-router-outlet {
+  min-width: 0;
+  min-height: 0;
+}
+
+ion-content::part(scroll) {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+strong,
+dd {
+  overflow-wrap: anywhere;
+}
+
+button,
+ion-button,
+ion-item[button] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+ion-button,
+ion-item[button] {
+  touch-action: manipulation;
+}
+
+.app-page {
+  width: min(100%, var(--app-content-max-width));
+  margin-inline: auto;
+  padding: var(--app-page-padding);
+}
+
+.app-page--narrow {
+  width: min(100%, var(--app-content-narrow-width));
+}
+
+.app-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+
+  h1,
+  h2 {
+    margin: 0;
+    color: var(--app-color-text);
+  }
+
+  p {
+    margin: 5px 0 0;
+    color: var(--app-color-text-muted);
+  }
+}
+
+.app-card {
+  min-width: 0;
+  background: var(--app-color-surface);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow-card);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+ion-button {
+  --border-radius: 14px;
+  min-height: var(--app-touch-target);
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+ion-button:not([fill="clear"]):not([fill="outline"]) {
+  --box-shadow: 0 10px 22px rgb(109 74 255 / 22%);
+}
+
+ion-searchbar {
+  --border-radius: 16px;
+}
+
+::selection {
+  color: #fff;
+  background: var(--app-color-primary);
+}
+
+.app-responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.app-empty-state {
+  min-height: min(55dvh, 520px);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  padding: 32px;
+  color: var(--app-color-text-muted);
+  text-align: center;
+}
+
+.app-action-sheet::part(content) {
+  background: var(--app-color-surface);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.7);
-  padding: 10px;
+  box-shadow: 0 -8px 30px rgb(17 24 39 / 18%);
 }
 
-.custom-action-sheet::part(header) {
-  color: #eeeeee;
-  font-size: 17px;
-  font-weight: 700;
-  padding: 14px;
+@media (max-width: 359px) {
+  :root {
+    --app-page-padding: 10px;
+  }
 }
 
-.custom-action-sheet::part(button) {
-  color: #4caf50;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: transparent;
-  transition: background 0.2s ease, color 0.2s ease;
+@media (max-width: 520px) {
+  .app-page-header {
+    align-items: start;
+    flex-direction: column;
+  }
 }
 
-.custom-action-sheet::part(button):hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #81c784;
-}
-
-.custom-action-sheet::part(cancel-button) {
-  color: #ff5252;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.custom-action-sheet::part(cancel-button):hover {
-  background: rgba(255, 82, 82, 0.08);
-  color: #ff8a80;
-}
-
-/* Dimmed backdrop */
-ion-backdrop {
-  --backdrop-opacity: 0.7;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

@@ -1,0 +1,32 @@
+<ion-menu side="start" menuId="leftMenu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <button class="profile-summary" type="button" (click)="navigate('/profile')">
+      <ion-avatar>
+        <img
+          [src]="profile().avatarUrl || 'assets/icon/default.png'"
+          alt=""
+        />
+      </ion-avatar>
+      <span class="profile-copy">
+        <strong>{{ profile().name }}</strong>
+        <span>{{ profile().email }}</span>
+      </span>
+      <ion-icon aria-hidden="true" name="chevron-forward-outline"></ion-icon>
+    </button>
+
+    <ion-list lines="none">
+      @for (item of navigationItems; track item.route) {
+        <ion-item button detail="false" (click)="navigate(item.route)">
+          <ion-icon [name]="item.icon" slot="start"></ion-icon>
+          <ion-label>{{ item.label }}</ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  </ion-content>
+</ion-menu>

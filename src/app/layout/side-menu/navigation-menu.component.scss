@@ -1,0 +1,87 @@
+ion-menu {
+  --width: min(94vw, 320px);
+  --background: var(--app-color-surface);
+
+  ion-toolbar {
+    --background: #171522;
+    --color: #fff;
+  }
+
+  ion-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 768px) { ion-menu { --width: 340px; } }
+
+.profile-summary {
+  width: calc(100% - 32px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 16px 12px;
+  padding: 16px;
+  color: var(--app-color-text);
+  text-align: left;
+  background: linear-gradient(135deg, var(--app-color-primary-soft), var(--app-color-accent-soft));
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-lg);
+  cursor: pointer;
+
+  ion-avatar {
+    width: 52px;
+    height: 52px;
+    border: 3px solid #fff;
+    box-shadow: 0 8px 20px rgb(41 34 72 / 16%);
+  }
+
+  ion-icon {
+    color: var(--app-color-text-muted);
+  }
+}
+
+.profile-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+
+  strong,
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  strong {
+    font-size: 0.95rem;
+  }
+
+  span {
+    color: var(--app-color-text-muted);
+    font-size: 0.76rem;
+  }
+}
+
+ion-list {
+  padding: 4px 12px 20px;
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --color: var(--app-color-text);
+  --border-radius: var(--app-radius-md);
+  --min-height: 50px;
+  margin-bottom: 4px;
+
+  ion-icon {
+    color: var(--app-color-primary);
+    font-size: 1.25rem;
+  }
+
+  &:hover {
+    --background: var(--app-color-primary-soft);
+  }
+}

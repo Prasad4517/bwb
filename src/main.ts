@@ -1,9 +1,92 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { addIcons } from 'ionicons';
+import {
+  arrowBack,
+  arrowForwardOutline,
+  call,
+  callOutline,
+  cameraOutline,
+  chatbubbleEllipsesOutline,
+  chatbubblesOutline,
+  checkmarkDoneOutline,
+  chevronForwardOutline,
+  closeOutline,
+  cubeOutline,
+  flashOutline,
+  hammerOutline,
+  heartOutline,
+  homeOutline,
+  imageOutline,
+  informationCircleOutline,
+  location,
+  locationOutline,
+  logoFacebook,
+  logoInstagram,
+  logoLinkedin,
+  logoTwitter,
+  logOutOutline,
+  mail,
+  mailOutline,
+  notificationsOffOutline,
+  notificationsOutline,
+  personAddOutline,
+  personOutline,
+  pricetagOutline,
+  radioButtonOnOutline,
+  receiptOutline,
+  searchOutline,
+  shareSocialOutline,
+  shieldCheckmarkOutline,
+  sparklesOutline,
+  storefrontOutline,
+  walletOutline,
+} from 'ionicons/icons';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
 import { register } from 'swiper/element/bundle';
 
-// Register Swiper's custom elements globally
 register();
-// Bootstrap Angular
-platformBrowserDynamic().bootstrapModule(AppModule)
+addIcons({
+  arrowBack,
+  arrowForwardOutline,
+  call,
+  callOutline,
+  cameraOutline,
+  chatbubbleEllipsesOutline,
+  chatbubblesOutline,
+  checkmarkDoneOutline,
+  chevronForwardOutline,
+  closeOutline,
+  cubeOutline,
+  flashOutline,
+  hammerOutline,
+  heartOutline,
+  homeOutline,
+  imageOutline,
+  informationCircleOutline,
+  location,
+  locationOutline,
+  logoFacebook,
+  logoInstagram,
+  logoLinkedin,
+  logoTwitter,
+  logOutOutline,
+  mail,
+  mailOutline,
+  notificationsOffOutline,
+  notificationsOutline,
+  personAddOutline,
+  personOutline,
+  pricetagOutline,
+  radioButtonOnOutline,
+  receiptOutline,
+  searchOutline,
+  shareSocialOutline,
+  shieldCheckmarkOutline,
+  sparklesOutline,
+  storefrontOutline,
+  walletOutline,
+});
+
+bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));

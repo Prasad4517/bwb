@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  position: relative;
+  min-width: 0;
+}
+
+.app-header {
+  background: rgb(247 246 251 / 82%);
+  border-bottom: 1px solid rgb(232 229 240 / 72%);
+  backdrop-filter: blur(18px);
+
+  ion-toolbar {
+    --background: transparent;
+    --color: var(--app-color-text);
+    --min-height: 68px;
+    --padding-start: max(10px, env(safe-area-inset-left));
+    --padding-end: max(10px, env(safe-area-inset-right));
+  }
+
+  ion-title {
+    min-width: 0;
+    font-size: 1.15rem;
+    font-weight: 850;
+    letter-spacing: -0.04em;
+  }
+
+  ion-menu-button,
+  ion-button {
+    --color: var(--app-color-text);
+    --background-hover: var(--app-color-primary-soft);
+    --border-radius: 14px;
+  }
+}
+
+@media (max-width: 359px) {
+  .app-header ion-toolbar {
+    --min-height: 54px;
+  }
+
+  .app-header ion-title {
+    font-size: 1rem;
+  }
+}
+
+.notification-button {
+  position: relative;
+  min-width: var(--app-touch-target);
+  min-height: var(--app-touch-target);
+
+  ion-icon {
+    font-size: 1.5rem;
+  }
+
+  ion-badge {
+    position: absolute;
+    pointer-events: none;
+    top: 2px;
+    right: 0;
+    min-width: 17px;
+    height: 17px;
+    padding: 2px 4px;
+    color: #fff;
+    background: var(--app-color-accent);
+    font-size: 0.65rem;
+    line-height: 13px;
+    border-radius: 999px;
+  }
+}

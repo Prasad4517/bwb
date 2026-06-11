@@ -1,0 +1,18 @@
+ion-header ion-toolbar { --background: #171522; --color: #fff; }
+ion-content { --background: linear-gradient(145deg, #171522, #33246e 62%, #6d4aff); }
+.refer-earn-content::part(scroll) { width: min(100%, var(--app-content-narrow-width)); margin-inline: auto; padding: var(--app-page-padding); }
+.refer-card, .how-it-works { color: #fff; background: rgb(255 255 255 / 9%); border: 1px solid rgb(255 255 255 / 14%); border-radius: var(--app-radius-xl); box-shadow: 0 20px 50px rgb(0 0 0 / 24%); backdrop-filter: blur(18px); }
+.refer-card { display: grid; justify-items: center; gap: 12px; padding: clamp(20px, 5vw, 36px); text-align: center; }
+.refer-card ion-img { width: clamp(90px, 25vw, 140px); }
+.credit-label { padding: 7px 11px; color: #171522; font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; background: var(--app-color-highlight); border-radius: 999px; }
+.refer-card h1 { margin: 0; color: #fff; font-size: clamp(1.35rem, 5vw, 2rem); letter-spacing: -.035em; }
+.refer-card p { max-width: 52ch; margin: 0; color: #d1d5db; line-height: 1.55; }
+.referral-code-box { width: min(100%, 420px); display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px 9px 16px; background: rgb(255 255 255 / 7%); border-radius: 12px; }
+.referral-code-box span { min-width: 0; color: #fff; font-weight: 800; letter-spacing: .1em; overflow-wrap: anywhere; }
+.how-it-works { margin-top: 18px; padding: 18px; }
+.how-it-works h2 { margin: 0 0 8px; color: var(--app-color-highlight); text-align: center; font-size: 1.1rem; }
+.how-it-works ion-list, .how-it-works ion-item { background: transparent; }
+.how-it-works ion-item { --background: transparent; --color: #e5e7eb; --inner-padding-end: 0; }
+.how-it-works ion-label { white-space: normal; }
+.how-it-works ion-icon { color: var(--app-color-highlight); }
+@media (max-width: 359px) { .referral-code-box { align-items: stretch; flex-direction: column; } }

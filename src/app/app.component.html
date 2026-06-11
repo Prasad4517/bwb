@@ -1,55 +1,16 @@
 <ion-app>
+  <app-navigation-menu></app-navigation-menu>
+  <app-notification-menu></app-notification-menu>
 
-  <!-- Left Side Menu -->
-  <ion-menu side="start" menuId="leftMenu" contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <!-- Profile Section -->
-      <div class="profile">
-        <ion-avatar class="avatar">
-          <img [src]="profileImage || 'assets/icon/default.png'" loading="lazy">
-        </ion-avatar>
-      </div>
-
-      <ion-list class="list-md">
-        <ion-item (click)="navigateAndClose('leftMenu', '/profile')">Profile</ion-item>
-        <ion-item (click)="navigateAndClose('leftMenu', '/freecash')">Free Cash</ion-item>
-        <ion-item (click)="navigateAndClose('leftMenu', '/favourite')">Favourite</ion-item>
-  
-        <ion-item (click)="navigateAndClose('leftMenu', '/whatsnew')">What's New</ion-item>
-        <ion-item (click)="navigateAndClose('leftMenu', '/contactus')">Contact Us</ion-item>
-         <ion-item (click)="navigateAndClose('leftMenu', '/aboutus')">About Us</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <!-- Right Side Notifications Menu -->
-  <ion-menu side="end" menuId="notificationsMenu" contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>Notifications</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list class="list-md">
-        <ion-item>Notification 1</ion-item>
-        <ion-item>Notification 2</ion-item>
-        <ion-item>Notification 3</ion-item>
-        <ion-item>Notification 4</ion-item>
-        <ion-item>Notification 5</ion-item>
-        <ion-item>Notification 6</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <!-- Main Content Area -->
-  <div id="main-content">
-    <app-header *ngIf="!hideheaderpages.includes(router.url)"></app-header>
-    <ion-router-outlet></ion-router-outlet>
+  <div id="main-content" class="app-shell">
+    @if (showAppHeader()) {
+      <app-header
+        [title]="headerTitle()"
+        [unreadCount]="unreadCount()"
+      ></app-header>
+    }
+    <main class="app-shell__viewport">
+      <ion-router-outlet></ion-router-outlet>
+    </main>
   </div>
-
 </ion-app>
